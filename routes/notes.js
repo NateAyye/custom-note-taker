@@ -39,4 +39,11 @@ notes.delete('/:id', (req, res) => {
   return res.status(200).json(success);
 });
 
+notes.get('/:id', (req, res) => {
+  const { id } = req.params;
+  const foundNote = fs.findNoteById(id);
+  if (!foundNote) return res.status(404).json({ msg: 'Note not found' });
+  return res.status(200).json(foundNote);
+});
+
 module.exports = notes;
