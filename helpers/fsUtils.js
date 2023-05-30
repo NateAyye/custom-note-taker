@@ -23,6 +23,18 @@ class FsUtils {
       return error;
     }
   }
+  findNoteById(id) {
+    return this.notes?.find((note) => note.id === id);
+  }
+  deleteNoteById(id) {
+    try {
+      this.notes = this.notes.filter((note) => note.id !== id);
+      this.fs.writeFileSync(this.dbPath, JSON.stringify(this.notes, null, 2));
+      return true;
+    } catch (error) {
+      return error;
+    }
+  }
   /***
    * Source for this code: from the 11-Express/01-Activities/Day3/22-Stu-Modular-Routing/Solved/helpers/uuid.js file
    *
