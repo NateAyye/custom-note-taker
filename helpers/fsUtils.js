@@ -55,13 +55,13 @@ class FsUtils {
   /***
    * @summary Adds a note to the db.json file
    * @param {object} note - The note to add to the db.json file
-   * @returns {boolean|object} - Returns true if the note was added successfully, otherwise returns an error object
+   * @returns {object|object} - Returns the note if the note was added successfully, otherwise returns an error object
    */
   addNote(note) {
     try {
       this.notes.push(note);
       this.fs.writeFileSync(this.dbPath, JSON.stringify(this.notes, null, 2));
-      return true;
+      return note;
     } catch (error) {
       return error;
     }
@@ -82,13 +82,14 @@ class FsUtils {
   /***
    * @summary Deletes a note from the db.json file based of the id passed in
    * @param {string} id - The id of the note to delete
-   * @returns {boolean|object} - Returns true if the note was deleted successfully, otherwise returns an error object
+   * @returns {object|object} - Returns the note if the note was found and deleted successfully, otherwise returns an error object
    */
   deleteNoteById(id) {
     try {
+      const note = this.findNoteById(id);
       this.notes = this.notes.filter((note) => note.id !== id);
       this.fs.writeFileSync(this.dbPath, JSON.stringify(this.notes, null, 2));
-      return true;
+      return note;
     } catch (error) {
       return error;
     }
@@ -97,6 +98,7 @@ class FsUtils {
    * Source for this code: from the 11-Express/01-Activities/Day3/22-Stu-Modular-Routing/Solved/helpers/uuid.js file
    *
    * @summary Generates a random id of 4 characters with random letters and numbers
+   * @returns {string} - Returns a random id
    */
   uuid() {
     return Math.floor((1 + Math.random()) * 0x10000)
