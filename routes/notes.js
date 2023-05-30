@@ -6,9 +6,7 @@ const fs = new fsUtils();
 
 notes.get('/', (req, res) => {
   const notes = fs.getNotes();
-  if (notes instanceof Error) {
-    return res.status(500).json(notes);
-  }
+  if (notes instanceof Error) return res.status(500).json(notes);
   return res.status(200).json(fs.getNotes());
 });
 
@@ -22,26 +20,24 @@ notes.post('/', (req, res) => {
     text,
     id: fs.uuid(),
   });
-  if (success instanceof Error) {
-    return res.status(500).json(success);
-  }
+  if (success instanceof Error) return res.status(500).json(success);
   return res.status(201).json(success);
 });
 
 notes.delete('/:id', (req, res) => {
   const { id } = req.params;
   const foundNote = fs.findNoteById(id);
+  if (foundNote instanceof Error) return res.status(500).json(foundNote);
   if (!foundNote) return res.status(404).json({ msg: 'Note not found' });
   const success = fs.deleteNoteById(id);
-  if (success instanceof Error) {
-    return res.status(500).json(success);
-  }
+  if (success instanceof Error) return res.status(500).json(success);
   return res.status(200).json(success);
 });
 
 notes.get('/:id', (req, res) => {
   const { id } = req.params;
   const foundNote = fs.findNoteById(id);
+  if (foundNote instanceof Error) return res.status(500).json(foundNote);
   if (!foundNote) return res.status(404).json({ msg: 'Note not found' });
   return res.status(200).json(foundNote);
 });

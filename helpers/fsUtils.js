@@ -69,10 +69,15 @@ class FsUtils {
   /***
    * @summary Finds a note in the db.json file based of the id passed in
    * @param {string} id - The id of the note to find
-   * @returns {object|undefined} - Returns the note if found, otherwise returns undefined
+   * @returns {object|object} - Returns the note if found, otherwise returns undefined
    */
   findNoteById(id) {
-    return this.notes?.find((note) => note.id === id);
+    try {
+      const note = this.notes?.find((note) => note.id === id);
+      return note;
+    } catch (error) {
+      return error;
+    }
   }
   /***
    * @summary Deletes a note from the db.json file based of the id passed in
