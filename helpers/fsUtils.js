@@ -69,7 +69,7 @@ class FsUtils {
   /***
    * @summary Finds a note in the db.json file based of the id passed in
    * @param {string} id - The id of the note to find
-   * @returns {object|object} - Returns the note if found, otherwise returns undefined
+   * @returns {object|object} - Returns the note if found, otherwise returns an error object
    */
   findNoteById(id) {
     try {
