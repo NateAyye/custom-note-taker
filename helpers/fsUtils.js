@@ -39,6 +39,7 @@ class FsUtils {
    */
   set setDbPath(dbPath) {
     this.dbPath = dbPath;
+    return;
   }
   /***
    * @summary Gets all the notes from the db.json file
