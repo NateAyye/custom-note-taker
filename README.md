@@ -12,6 +12,9 @@ This application allows the user to create, save, and delete notes. The user can
   - [Installation](#installation)
   - [Usage](#usage)
   - [License](#license)
+  - [Contribution](#contribution)
+  - [Tests](#tests)
+  - [Questions](#questions)
 
 ## Installation
 
@@ -35,11 +38,32 @@ Click the plus icon in the top right corner to create a new note. You will see t
 
 ![Custom Note Taker](https://github.com/NateAyye/custom-note-taker/blob/main/public/assets/images/new-note.png)
 
-You can now enter whatever title and text you want for your note. Click the save icon in the top right corner to save your note. You will see the following screen:
-
 <img align="left" src="https://github.com/NateAyye/custom-note-taker/blob/main/public/assets/images/save-note.png" />
 <img align="left" src="https://github.com/NateAyye/custom-note-taker/blob/main/public/assets/images/saved-note.png" />
+You can now enter whatever title and text you want for your note. Click the save icon in the top right corner to save your note. You will see the following screen:
 
 ## License
 
 This project is licensed under the[MIT license](https://github.com/NateAyye/custom-note-taker/blob/main/LICENSE).
+
+## Contribution
+
+1. Fork it!
+2. Create your feature branch: `git checkout -b my-new-feature`
+3. Commit your changes: `git commit -am 'Add some feature'`
+4. Push to the branch: `git push origin my-new-feature`
+5. Submit a pull request :D
+
+Basic Rules for contributing to this repo are gonna be held to standards with the [Contributor Convenant Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/) Standards.
+
+## Tests
+
+No tests have been created for this application.
+
+## Questions
+
+Want to know me a little bit bette more? [NateAyye's Profile](https://github.com/NateAyye)
+
+Want to get in contact with me?
+
+- Send an email to nathanacuevas97@gmail.com
